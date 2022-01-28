@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="./assets/make-discord-bot.png" width=900px height=188px>
+	<img src="https://github.com/ctnkaan/make-discord-bot/blob/main/assets/make-discord-bot.png" alt="Logo" width=100% height=188px>
 	<h1 align="center"> Make Discord Bot </h1>
 		<p align="center">
 			<b>This is the main repository of the Make Discord Bot CLI. </b> 

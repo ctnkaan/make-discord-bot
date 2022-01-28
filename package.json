@@ -1,6 +1,6 @@
 {
   "name": "make-discord-bot",
-  "version": "0.0.3-dev",
+  "version": "1.0.1",
   "description": "This Command Line tool will generate a Discord bot template for you 🤖.",
   "main": "index.js",
   "type": "module",
@@ -18,5 +18,9 @@
     "gradient-string": "^2.0.0",
     "inquirer": "^8.2.0",
     "nanospinner": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ctnkaan/make-discord-bot"
   }
 }
