@@ -1,6 +1,6 @@
 {
   "name": "make-discord-bot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This Command Line tool will generate a Discord bot template for you 🤖.",
   "main": "index.js",
   "type": "module",
@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "author": "Çetin Kaan Taşkıngenç",
-  "license": "ISC",
+  "license": "MIT",
   "bin": "./index.js",
   "dependencies": {
     "chalk": "^5.0.0",
