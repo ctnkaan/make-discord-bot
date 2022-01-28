@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="./assets/make-discord-bot.png" width=400px height=300px>
+	<img src="./assets/make-discord-bot.png" width=900px height=188px>
 	<h1 align="center"> Make Discord Bot </h1>
 		<p align="center">
 			<b>This is the main repository of the Make Discord Bot CLI. </b> 
@@ -14,7 +14,7 @@ Make Discord Bot is a Command Line Interface that allows for easy access to Disc
 
 -> `npx make-discord-bot`
 
-![Demo Gif]("assets/usage.gif")
+![Demo Gif](https://github.com/ctnkaan/make-discord-bot/blob/main/assets/usage.gif)
 
 ## Prerequisites
 
