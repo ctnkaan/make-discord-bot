@@ -6,15 +6,22 @@ import gradient from "gradient-string";
 import chalkAnimation from "chalk-animation";
 import figlet from "figlet";
 import { createSpinner } from "nanospinner";
-import fs from "fs";
+import fse from "fs-extra";
 import { execSync } from "child_process";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const __userDirname = process.cwd();
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 let botName;
 
 async function welcome() {
-  const msg = `Create Discord.js Bot`;
+  const msg = `Make Discord Bot`;
   const author = chalkAnimation.neon("Made with ❤️ by @ctnkaan\n");
 
   figlet(msg, (err, data) => {
@@ -50,41 +57,72 @@ async function language() {
   return handleAnswer(answers.language == "JavaScript");
 }
 
-async function handleAnswer(isCorrect) {
-  const spinner = createSpinner("Genereting...").start();
+async function handleAnswer(isJavaScript) {
+  const spinner = createSpinner("Generating...").start();
   await sleep(2000);
 
   //Create file
-  fs.mkdir(`./${botName}`, { recursive: true }, (err) => {
+  fse.mkdir(`./${botName}`, { recursive: true }, (err) => {
     if (err) {
       console.log(err);
       process.exit(1);
     }
   });
 
-  //install npm packages
-  const output = execSync(`cd ${botName} && npm init -y && npm i discord.js`, {
-    encoding: "utf-8",
-  });
-  console.log(output);
+  if (isJavaScript) {
+    fse.copy(
+      `${__dirname}/templates/javascript`,
+      `${__userDirname}/${botName}`,
+      (err) => {
+        if (err) return console.error(err);
+      }
+    );
 
-  fs.copyFile("./templates/server.js", `./${botName}`, (err) => {
-    if (err) {
-      console.log(err);
-      process.exit(1);
-    }
-  });
+    await sleep(1000);
 
-  chalkAnimation.karaoke("Successfully created bot!").start();
-  chalkAnimation.karaoke("Enjoy!").start();
+    //install npm packages
+    const output = execSync(`cd ${botName} && npm install`, {
+      encoding: "utf-8",
+    });
+    console.log(output);
 
-  await sleep(2000);
+    await sleep(2000);
 
-  if (isCorrect) {
     spinner.success({ text: `Generated ${botName} as JavaScript Template` });
   } else {
+    fse.copy(
+      `${__dirname}/templates/typescript`,
+      `${__userDirname}/${botName}`,
+      (err) => {
+        if (err) return console.error(err);
+      }
+    );
+
+    await sleep(1000);
+
+    //install npm packages
+    const output = execSync(`cd ${botName} && npm install`, {
+      encoding: "utf-8",
+    });
+    console.log(output);
+
+    await sleep(2000);
     spinner.success({ text: `Generated ${botName} as TypeScript Template` });
   }
+
+  console.log(
+    chalk.bgGreen(`You can start working on your project by typing\n`)
+  );
+
+  console.log(chalk.bgBlue(`cd ${botName}`));
+  console.log(chalk.bgBlue(`rename dotenv to .env`));
+  console.log(chalk.bgBlue(`nodemon dev\n`));
+
+  const success = chalkAnimation.karaoke(`Happy Coding!`).start();
+
+  await sleep(3000);
+
+  success.stop();
 }
 
 await welcome();

@@ -1,22 +1,22 @@
 {
-  "name": "create-discord-bot",
-  "version": "1.0.0",
-  "description": "",
+  "name": "make-discord-bot",
+  "version": "0.0.3-dev",
+  "description": "This Command Line tool will generate a Discord bot template for you 🤖.",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Çetin Kaan Taşkıngenç",
   "license": "ISC",
+  "bin": "./index.js",
   "dependencies": {
     "chalk": "^5.0.0",
     "chalk-animation": "^1.6.0",
     "figlet": "^1.5.2",
+    "fs-extra": "^10.0.0",
     "gradient-string": "^2.0.0",
     "inquirer": "^8.2.0",
-    "nanospinner": "^1.0.0",
-    "npm": "^8.4.0"
+    "nanospinner": "^1.0.0"
   }
 }
