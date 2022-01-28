@@ -21,15 +21,14 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 let botName;
 
 async function welcome() {
-  const msg = `Make Discord Bot`;
-  const author = chalkAnimation.neon("Made with ❤️ by @ctnkaan\n");
+  const author = chalkAnimation.pulse("<> with ❤️ by Çetin Kaan Taşkıngenç\n");
 
-  figlet(msg, (err, data) => {
+  figlet(`Make Discord Bot`, (err, data) => {
     console.log(gradient.pastel.multiline(data));
     author.start();
   });
 
-  await sleep(2000);
+  await sleep(2500);
   author.stop();
 }
 
@@ -111,12 +110,12 @@ async function handleAnswer(isJavaScript) {
   }
 
   console.log(
-    chalk.bgGreen(`You can start working on your project by typing\n`)
+    chalk.bgBlue(`You can start working on your project by typing\n`)
   );
 
-  console.log(chalk.bgBlue(`cd ${botName}`));
-  console.log(chalk.bgBlue(`rename dotenv to .env`));
-  console.log(chalk.bgBlue(`nodemon dev\n`));
+  console.log(chalk.bgMagenta(`cd ${botName}`));
+  console.log(chalk.bgMagenta(`rename dotenv to .env`));
+  console.log(chalk.bgMagenta(`nodemon dev\n`));
 
   const success = chalkAnimation.karaoke(`Happy Coding!`).start();
 
