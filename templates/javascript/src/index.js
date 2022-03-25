@@ -25,7 +25,7 @@ commands.set("ping", Ping);
 
 client.on("ready", () => {
   console.log(`I am ready! Logged in as ${client.user.tag}`);
-  client.user.setActivity(`${prefix} ping`);
+  client.user.setActivity(`${prefix}ping`);
 });
 
 //When there is a message in server
