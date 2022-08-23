@@ -44,11 +44,11 @@ client.on("messageCreate", (message) => {
   const currCommand = commands.get(command);
 
   //If the currCommand is not undefined,
-  if (currCommand) currCommand.callback(message, args);
-  else
-    message.channel.send(
-      `Command not found! Type ${prefix} help to see all commands`
-    );
+  if (currCommand) {
+    currCommand.callback(message, args);
+  } else {
+    message.channel.send(`Command not found! Type ${prefix} help to see all commands`);
+  }
 });
 
 client.login(process.env.DISCORD_TOKEN);
