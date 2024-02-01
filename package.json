@@ -1,6 +1,6 @@
 {
   "name": "make-discord-bot",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "This Command Line tool will generate a Discord bot template for you 🤖.",
   "main": "index.js",
   "type": "module",
